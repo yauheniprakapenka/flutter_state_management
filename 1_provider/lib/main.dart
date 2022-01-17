@@ -28,7 +28,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(context.watch<Counter>().counter.toString()),
+        child: Consumer<Counter>(
+          builder: (_, counter, ___) {
+            return Text(counter.counter.toString());
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: context.read<Counter>().incrementCounter,
