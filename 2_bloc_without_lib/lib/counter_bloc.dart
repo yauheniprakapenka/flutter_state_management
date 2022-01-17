@@ -3,7 +3,7 @@ import 'dart:async';
 import 'counter_event.dart';
 
 class CounterBloc {
-  int value = 0;
+  var _value = 0;
 
   final _stateCntrl = StreamController<int>();
   final _eventCntrl = StreamController<CounterEvent>();
@@ -15,7 +15,7 @@ class CounterBloc {
     _eventCntrl.stream.listen((event) {
       _handleEvent(event);
     });
-    _stateCntrl.add(value); // <--- add default value
+    _stateCntrl.add(_value); // add default value
   }
 
   void dispose() {
@@ -25,8 +25,8 @@ class CounterBloc {
 
   _handleEvent(CounterEvent event) async {
     if (event == CounterEvent.increase) {
-      value++;
+      _value++;
     }
-    _stateCntrl.add(value);
+    _stateCntrl.add(_value);
   }
 }
