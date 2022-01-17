@@ -9,13 +9,13 @@ class CounterBloc {
   final _eventCntrl = StreamController<CounterEvent>();
 
   Stream<int> get state => _stateCntrl.stream;
-  Sink<CounterEvent> get action => _eventCntrl.sink;
+  Sink<CounterEvent> get event => _eventCntrl.sink;
 
   CounterBloc() {
     _eventCntrl.stream.listen((event) {
       _handleEvent(event);
     });
-    _stateCntrl.add(value); // <-- add default value
+    _stateCntrl.add(value); // <--- add default value
   }
 
   void dispose() {
@@ -23,8 +23,8 @@ class CounterBloc {
     _eventCntrl.close();
   }
 
-  _handleEvent(CounterEvent action) async {
-    if (action == CounterEvent.increase) {
+  _handleEvent(CounterEvent event) async {
+    if (event == CounterEvent.increase) {
       value++;
     }
     _stateCntrl.add(value);

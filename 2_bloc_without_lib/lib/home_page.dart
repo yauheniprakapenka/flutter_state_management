@@ -9,13 +9,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
-  late final CounterBloc bloc;
-
-  @override
-  void initState() {
-    super.initState();
-    bloc = CounterBloc();
-  }
+  final bloc = CounterBloc();
 
   @override
   void dispose() {
@@ -42,7 +36,7 @@ class _HomePage extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => bloc.action.add(CounterEvent.increase),
+        onPressed: () => bloc.event.add(CounterEvent.increase),
         child: Icon(Icons.add),
       ),
     );
