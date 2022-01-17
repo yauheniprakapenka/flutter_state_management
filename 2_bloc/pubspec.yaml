@@ -1,4 +1,4 @@
-name: provider_example
+name: bloc_example
 description: A new Flutter project.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
@@ -9,7 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  provider: ^6.0.2
 
 flutter:
   uses-material-design: true
